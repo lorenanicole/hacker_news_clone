@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if session[:username] %>
+    <a href="/logout">Logout</a>
+    <a href="/createpost">Create Post</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+    <a href="/">Home</a>
+
+  <table>
+    <tr>
+      <td> <%= @view_post.title %> </td>
+      <td> Source: <%= @view_post.url %> </td>
+    </tr>
+      <td>By: <%= @author %> </td>
+    <tr>
+  </table>
+
+  <% if session[:username] %>
+    <div id="comment">
+      <form name="create_comment" action="/createcomment/<%= @view_post.id%>" method="post">
+        <input type="text" name="content" placeholder="What do you want to say?">
+        <button type="submit">Comment it!</button>
+      </form>
+    </div>
+  <% end %>
+
+  <% if @all_comments %>
+   <ul>
+    <% @number = 1 %>
+      <% @all_comments.each do |comment| %>
+      <%= erb :_comment_item_view, :locals => { :comment => comment, :number => @number } %>
+      <% @number += 1 %>
+      <% end %>
+  </ul>
+  <% end %>
+
+</div>

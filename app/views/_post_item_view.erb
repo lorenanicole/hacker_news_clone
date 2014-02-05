@@ -1,0 +1,8 @@
+<tr>
+  <td> <%= @number %>. </td>
+  <td> <a href="/post/<%= post.id %>"><%= post.title %></a></td>
+<td>(<a href="/<%= post.url %>"><%= post.url %>)</a></td>
+</tr>
+<tr>
+  <td><a href="/user/<%= post.user_id%>"><%= User.find(post.user_id).username %></a></td>
+</tr>

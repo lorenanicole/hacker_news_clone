@@ -1,0 +1,4 @@
+
+  <li> <%= @number %>. <%= comment.content %></li>
+  <li>By: <a href="/user/<%= comment.user_id%>"><%= User.find(comment.user_id).username %></a></li>
+

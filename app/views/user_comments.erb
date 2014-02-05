@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if session[:username] %>
+    <a href="/logout">Logout</a>
+    <a href="/createpost">Create Post</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+
+  <% if @all_comments %>
+  <ul>
+    <% @number = 1 %>
+      <% @all_comments.each do |comment| %>
+      <%= erb :_comment_item_view, :locals => { :comment => comment, :number => @number } %>
+      <% @number += 1 %>
+      <% end %>
+  </ul>
+  <% end %>
+
+</div>

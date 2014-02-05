@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if session[:username] %>
+    <a href="/logout">Logout</a>
+    <a href="/createpost">Create Post</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+
+  <table>
+    <% if @all_posts %>
+    <% @number = 1 %>
+      <% @all_posts.each do |post| %>
+      <%= erb :_post_item_view, :locals => { :post => post, :number => @number } %>
+      <% @number += 1 %>
+      <% end %>
+      <% end %>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if @error_message %>
+    <h3><%= @error_message %></h3>
+  <% end %>
+
+  <% if @invalid_password %>
+    <h3><%= @invalid_password %></h3>
+  <% end %>
+
+   <% if @invalid_username %>
+    <h3><%= @invalid_username %></h3>
+  <% end %>
+
+
+  <div id="login">
+    <form name="log_in" action="/login" method="post">
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+   <div id="registration">
+    <form name="sign_up" action="/sign_up" method="post">
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+</div>

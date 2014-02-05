@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if session[:username] %>
+    <a href="/logout">Logout</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+
+ <div id="login">
+    <form name="create_post" action="/createpost" method="post">
+      <input type="text" name="title" placeholder="What will you name me?">
+      <input type="text" name="url" placeholder="What is my url?">
+      <button type="submit">Post it!</button>
+    </form>
+  </div>
+</div>

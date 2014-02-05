@@ -1,0 +1,15 @@
+<div class="container">
+
+<h2> <%= @user.username %>'s Posts</h2>
+
+   <table>
+    <% if @all_posts %>
+    <% @number = 1 %>
+      <% @all_posts.each do |post| %>
+      <%= erb :_post_item_view, :locals => { :post => post, :number => @number } %>
+      <% @number += 1 %>
+      <% end %>
+      <% end %>
+  </table>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Hacker News</h1>
+
+  <% if session[:username] %>
+    <a href="/logout">Logout</a>
+    <a href="/createpost">Create Post</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+  <a href="/">Home</a>
+
+  <ul>
+    <li>user: <%= @user_profile.username %></li>
+    <li>created_at: <%= @user_profile.created_at %></li>
+    <li><a href="/posts/<%= @user_profile.id %>"> submissions</a></li>
+    <li><a href="/comments/<%= @user_profile.id %>">comments</a></li>
+  </ul>
+
+
+</div>
