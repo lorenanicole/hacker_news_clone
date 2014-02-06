@@ -31,7 +31,7 @@
    <ul>
     <% @number = 1 %>
       <% @all_comments.each do |comment| %>
-      <%= erb :_comment_item_view, :locals => { :comment => comment, :number => @number } %>
+      <%= erb :_comment_item_view, :locals => { :comment => comment, :number => @number, :user => session[:username] } %>
       <% @number += 1 %>
       <% end %>
   </ul>

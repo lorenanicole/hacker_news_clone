@@ -1,4 +1,7 @@
 
   <li> <%= @number %>. <%= comment.content %></li>
   <li>By: <a href="/user/<%= comment.user_id%>"><%= User.find(comment.user_id).username %></a></li>
+  <% if session[:username] %>
+  <li><button type="button" class="upvoteComment" data-route="<%=comment.id %>"><%=comment.commentvote.votes%> Votes</button></li>
+  <% end %>
 
