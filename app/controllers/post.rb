@@ -9,6 +9,7 @@ end
 
 post '/createpost' do
   new_post = Post.create(title: params[:title], url: params[:url], user_id: User.find_by_username(session[:username]).id)
+  Postvote.create(post_id: new_post.id)
   redirect("/post/#{new_post.id}")
 end
 

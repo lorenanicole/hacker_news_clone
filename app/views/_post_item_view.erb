@@ -1,8 +1,11 @@
 <tr>
   <td> <%= @number %>. </td>
   <td> <a href="/post/<%= post.id %>"><%= post.title %></a></td>
-<td>(<a href="/<%= post.url %>"><%= post.url %>)</a></td>
+  <td>(<a href="/<%= post.url %>"><%= post.url %>)</a></td>
+  <% if session[:username] %>
+  <td><button type="button" class="upvotePost" data-route="<%=post.id %>"><%=post.postvote.votes%> Votes</button></td>
+  <% end %>
 </tr>
 <tr>
-  <td><a href="/user/<%= post.user_id%>"><%= User.find(post.user_id).username %></a></td>
+  <td>Authored By: <a href="/user/<%= post.user_id%>"><%= User.find(post.user_id).username %></a></td>
 </tr>
